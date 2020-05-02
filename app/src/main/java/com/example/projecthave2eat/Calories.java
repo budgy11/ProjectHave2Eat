@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 //Crashes when pressing the submit button
 //Posts to api but returns "E/response: response :{"error_message":"Error: invalid json","message":"Questions? Reference this errors '_id' on the Nutritionix Forum. https://developer.nutritionix.com/forum","recommendations":"Check your Request Details. You may have incorrectly used some params, or the request was malformed.","req_info":{"_parsedUrl":{"protocol":null,"slashes":null,"auth":null,"host":null,"port":null,"hostname":null,"hash":null,"search":null,"query":null,"pathname":"/v1_1/search","path":"/v1_1/search","href":"/v1_1/search"},"method":"POST","query":{},"remoteAddress":"127.0.0.1","headers":{"x-forwarded-port":"443","user-agent":"Apache-HttpClient/UNAVAILABLE (java 1.4)","x-forwarded-proto":"https","host":"api.nutritionix.com","x-forwarded-for":"136.32.64.125, 10.0.1.142","connection":"close","content-length":"126","content-type":"application/json"},"body":{}},"_id":"5eadb4d319f450cc3b10466a"}"
+//Error found when using correct content type header with no json or
 public class Calories extends AppCompatActivity {
 
     Button calorieQuery;
@@ -85,7 +86,7 @@ public class Calories extends AppCompatActivity {
                 InputStreamToStringExample str = new InputStreamToStringExample();
                 responseServer = str.getStringFromInputStream(inputStream);
 
-                Log.e("response", "response :" + responseServer);
+                Log.e("response", "response:" + responseServer);
 
             }catch (Exception e){
                 e.printStackTrace();

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,12 +21,14 @@ public class Restaurants extends AppCompatActivity {
         setContentView(R.layout.activity_restaurants);
 
         final EditText searchText = (EditText) findViewById(R.id.restSearch);
-         Button searchButton= (Button) findViewById(R.id.submitSearch);
+        Button searchButton= (Button) findViewById(R.id.submitSearch);
+        final WebView webview = (WebView)findViewById(R.id.searchView);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String searchQuery = searchText.getText().toString();
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/#q=" + searchQuery +"+\"restaurants\"+near+me")));
+                //webview.loadUrl("https://www.google.com/#q=" + searchQuery +"+\"restaurants\"+near+me");
                 Toast.makeText(getApplicationContext(), searchQuery, Toast.LENGTH_LONG).show();
 
             }

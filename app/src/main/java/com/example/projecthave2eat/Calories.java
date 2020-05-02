@@ -50,8 +50,9 @@ public class Calories extends AppCompatActivity {
             public void onClick(View view) {
                 String food = foodText.getText().toString();
                 AsyncT asynct = new AsyncT();
-                asynct.execute();
                 Toast.makeText(getApplicationContext(), food, Toast.LENGTH_LONG).show();
+                asynct.execute(); //crashes on call
+
 
             }
         });

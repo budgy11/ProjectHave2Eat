@@ -3,7 +3,6 @@
     package="com.example.projecthave2eat">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-library android:name="org.apache.http.legacy" android:required="false" /> <!-- used for failed resolution of DefaultHTTPClient-->
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" /> <!-- used for failed resolution of DefaultHTTPClient-->
         <activity android:name=".Calories"></activity>
         <activity android:name=".Comments" />
         <activity android:name=".Calender" />

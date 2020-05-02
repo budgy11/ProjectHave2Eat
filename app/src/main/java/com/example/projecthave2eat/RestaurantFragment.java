@@ -21,7 +21,11 @@ public class RestaurantFragment extends Fragment {
         WebView webView = (WebView)v.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.google.com");
+        //webView.loadUrl("https://www.google.com");
+        Restaurants search = new Restaurants();
+
+        String searchQuery = search.searchQuery;
+        webView.loadUrl(searchQuery);
         return v;
     }
 }

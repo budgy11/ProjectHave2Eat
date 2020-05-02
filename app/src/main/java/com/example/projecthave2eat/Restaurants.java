@@ -22,16 +22,16 @@ public class Restaurants extends AppCompatActivity {
 
         final EditText searchText = (EditText) findViewById(R.id.restSearch);
         Button searchButton= (Button) findViewById(R.id.submitSearch);
-        //final WebView webview = (WebView)findViewById(R.id.webView);
+        final WebView webview = (WebView)findViewById(R.id.webView);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 searchQuery = searchText.getText().toString();
                 //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/#q=" + searchQuery +"+\"restaurants\"+near+me")));
-                //webview.loadUrl("https://www.google.com/#q=" + searchQuery +"+\"restaurants\"+near+me");
+                webview.loadUrl("https://www.google.com/#q=" + searchQuery +"+\"restaurants\"+near+me");
                 Toast.makeText(getApplicationContext(), searchQuery, Toast.LENGTH_LONG).show();
-                RestaurantFragment fragment1 = new RestaurantFragment();
-                getSupportFragmentManager().beginTransaction().add(R.id.container,fragment1).commit();
+                //RestaurantFragment fragment1 = new RestaurantFragment();
+                //getSupportFragmentManager().beginTransaction().add(R.id.container,fragment1).commit();
             }
         });
     }

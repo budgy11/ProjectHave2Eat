@@ -11,11 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -25,7 +20,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,9 @@ import java.util.List;
 public class Calories extends AppCompatActivity {
 
     Button calorieQuery;
+    EditText food;
 
+    String responseServer;
 
     //Retrive string food from edit text
     @Override
@@ -79,21 +80,63 @@ public class Calories extends AppCompatActivity {
 
                 HttpResponse response = httpclient.execute(httppost);
                 InputStream inputStream = response.getEntity().getContent();
+                InputStreamToStringExample str = new InputStreamToStringExample();
+                responseServer = str.getStringFromInputStream(inputStream);
 
-                StringWriter writer = new StringWriter();
-                IOUtils.copy(inputStream,writer, encoding);
-
-
+                Log.e("response", "response :" + responseServer);
 
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
             return null;
         }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            food.setText(responseServer);
+        }
+    }
+    public static class InputStreamToStringExample{
+        public static void main(String[] args) throws IOException{
+
+            InputStream is = new ByteArrayInputStream("file".getBytes());
+            String result = getStringFromInputStream(is);
+
+            System.out.println(result);
+            System.out.println("Done");
+
+        }
+        private static String getStringFromInputStream(InputStream is){
+
+            BufferedReader br = null;
+            StringBuilder sb = new StringBuilder();
+
+            String line;
+
+            try{
+                br = new BufferedReader(new InputStreamReader(is));
+                while ((line = br.readLine()) != null){
+                    sb.append(line);
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+            }finally{
+                if (br != null){
+                    try{
+                        br.close();
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+            return sb.toString();
+        }
+
     }
 }
+
 
 
 

@@ -63,6 +63,7 @@ public class Calories extends AppCompatActivity {
         protected String doInBackground(Void... voids) {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost("https://api.nutritionix.com/v1_1/search");
+            httppost.addHeader("Content-Type","application/json");
 
             try{
                 JSONObject jsonobj = new JSONObject();

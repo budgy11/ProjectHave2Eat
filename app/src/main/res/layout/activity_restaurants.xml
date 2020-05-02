@@ -7,7 +7,7 @@
     tools:context=".Restaurants">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
@@ -15,10 +15,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/restSearch" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/restSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"

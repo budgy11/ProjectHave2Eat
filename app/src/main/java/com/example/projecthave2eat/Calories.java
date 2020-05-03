@@ -85,6 +85,7 @@ public class Calories extends AppCompatActivity {
             public void onClick(View v) {
                 String FoodAdd = foodAdd.getText().toString();
                 String calAdd = calorieAdd.getText().toString();
+                Toast.makeText(getApplicationContext(), FoodAdd + "has been added with " + calAdd + "calories", Toast.LENGTH_LONG).show();
 
                 caloriesMap.put(FoodAdd,calAdd);
             }

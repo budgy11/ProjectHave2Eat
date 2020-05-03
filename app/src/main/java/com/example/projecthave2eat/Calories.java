@@ -52,9 +52,9 @@ public class Calories extends AppCompatActivity {
 
 
         final HashMap<String, Integer> caloriesMap = new HashMap<String, Integer>();
-        caloriesMap.put("Apple",81);
-        caloriesMap.put("Orange",65);
-        caloriesMap.put("Grape",114);
+        caloriesMap.put("Apples",81);
+        caloriesMap.put("Oranges",65);
+        caloriesMap.put("Grapes",114);
 
         final TextView textView = (TextView)findViewById(R.id.calorieView);
 
@@ -65,8 +65,8 @@ public class Calories extends AppCompatActivity {
             public void onClick(View view) {
                 String food = foodText.getText().toString();
                 //AsyncT asynct = new AsyncT();
-                Toast.makeText(getApplicationContext(), caloriesMap.get(food).toString(), Toast.LENGTH_LONG).show();
-                textView.setText(food + " has " + caloriesMap.get(food).toString() + " calories");
+                //Toast.makeText(getApplicationContext(), caloriesMap.get(food).toString(), Toast.LENGTH_LONG).show();
+                textView.setText("One serving of " + food + " has " + caloriesMap.get(food).toString() + " calories");
                 //asynct.execute(); //crashes on call
 
 

@@ -40,6 +40,7 @@ import java.util.List;
 public class Calories extends AppCompatActivity {
 
     Button calorieQuery;
+    Button addFood;
     EditText food;
 
     String responseServer;
@@ -50,17 +51,20 @@ public class Calories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
 
-        final HashMap<String, Integer> caloriesMap = new HashMap<String, Integer>();
-        caloriesMap.put("Apple",81);
-        caloriesMap.put("Apples",81);
-        caloriesMap.put("Orange",65);
-        caloriesMap.put("Oranges",65);
-        caloriesMap.put("Grapes",114);
-        caloriesMap.put("Grapes",114);
+        final HashMap<String, String> caloriesMap = new HashMap<String, Integer>();
+        caloriesMap.put("Apple","81");
+        caloriesMap.put("Apples","81");
+        caloriesMap.put("Orange","65");
+        caloriesMap.put("Oranges","65");
+        caloriesMap.put("Grapes","114");
+        caloriesMap.put("Grapes","114");
 
         final TextView textView = (TextView)findViewById(R.id.calorieView);
 
         final EditText foodText = (EditText) findViewById(R.id.foodText);
+        final EditText foodAdd = (EditText) findViewById(R.id.foodAdd);
+        final EditText calorieAdd = (EditText) findViewById(R.id.calorieAdd);
+
         calorieQuery = (Button) findViewById(R.id.calorieQuery);
         calorieQuery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +72,21 @@ public class Calories extends AppCompatActivity {
                 String food = foodText.getText().toString();
                 //AsyncT asynct = new AsyncT();
                 //Toast.makeText(getApplicationContext(), caloriesMap.get(food).toString(), Toast.LENGTH_LONG).show();
-                textView.setText("One serving of " + food + " has " + caloriesMap.get(food).toString() + " calories");
+                textView.setText("One serving of " + food + " has " + caloriesMap.get(food) + " calories");
                 //asynct.execute(); //crashes on call
 
 
 
+            }
+        });
+        addFood = (Button)findViewById(R.id.AddFood);
+        addFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String FoodAdd = foodAdd.getText().toString();
+                String calAdd = calorieAdd.getText().toString();
+
+                caloriesMap.put(FoodAdd,calAdd);
             }
         });
     }

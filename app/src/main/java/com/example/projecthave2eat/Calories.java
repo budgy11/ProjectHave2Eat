@@ -3,12 +3,14 @@ package com.example.projecthave2eat;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -27,10 +29,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 //Crashes when pressing the submit button
 //Posts to api but returns "E/response: response :{"error_message":"Error: invalid json","message":"Questions? Reference this errors '_id' on the Nutritionix Forum. https://developer.nutritionix.com/forum","recommendations":"Check your Request Details. You may have incorrectly used some params, or the request was malformed.","req_info":{"_parsedUrl":{"protocol":null,"slashes":null,"auth":null,"host":null,"port":null,"hostname":null,"hash":null,"search":null,"query":null,"pathname":"/v1_1/search","path":"/v1_1/search","href":"/v1_1/search"},"method":"POST","query":{},"remoteAddress":"127.0.0.1","headers":{"x-forwarded-port":"443","user-agent":"Apache-HttpClient/UNAVAILABLE (java 1.4)","x-forwarded-proto":"https","host":"api.nutritionix.com","x-forwarded-for":"136.32.64.125, 10.0.1.142","connection":"close","content-length":"126","content-type":"application/json"},"body":{}},"_id":"5eadb4d319f450cc3b10466a"}"
 //Error found when using correct content type header with no json or
+
+
+//switching to database method
 public class Calories extends AppCompatActivity {
 
     Button calorieQuery;
@@ -44,22 +50,32 @@ public class Calories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
 
+
+        final HashMap<String, Integer> caloriesMap = new HashMap<String, Integer>();
+        caloriesMap.put("Apple",81);
+        caloriesMap.put("Orange",65);
+        caloriesMap.put("Grape",114);
+
+        final TextView textView = (TextView)findViewById(R.id.calorieView);
+
         final EditText foodText = (EditText) findViewById(R.id.foodText);
         calorieQuery = (Button) findViewById(R.id.calorieQuery);
         calorieQuery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String food = foodText.getText().toString();
-                AsyncT asynct = new AsyncT();
-                Toast.makeText(getApplicationContext(), food, Toast.LENGTH_LONG).show();
-                asynct.execute(); //crashes on call
+                //AsyncT asynct = new AsyncT();
+                Toast.makeText(getApplicationContext(), caloriesMap.get(food).toString(), Toast.LENGTH_LONG).show();
+                textView.setText(food + " has " + caloriesMap.get(food).toString() + " calories");
+                //asynct.execute(); //crashes on call
+
 
 
             }
         });
     }
 
-
+/*
     class AsyncT extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
@@ -138,7 +154,9 @@ public class Calories extends AppCompatActivity {
         }
 
     }
+*/
 }
+
 
 
 

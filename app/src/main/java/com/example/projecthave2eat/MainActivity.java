@@ -1,3 +1,6 @@
+//Diana Tkachuk, Edward Goode, Victor Semenok
+//Restaurant helper app
+
 package com.example.projecthave2eat;
 
 import androidx.appcompat.app.AppCompatActivity;

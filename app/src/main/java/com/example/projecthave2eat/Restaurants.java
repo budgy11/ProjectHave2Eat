@@ -22,7 +22,6 @@ public class Restaurants extends AppCompatActivity {
 
         final EditText searchText = (EditText) findViewById(R.id.restSearch);
         Button searchButton= (Button) findViewById(R.id.submitSearch);
-        final WebView webview = (WebView)findViewById(R.id.webView);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

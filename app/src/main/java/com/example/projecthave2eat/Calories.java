@@ -52,8 +52,11 @@ public class Calories extends AppCompatActivity {
 
 
         final HashMap<String, Integer> caloriesMap = new HashMap<String, Integer>();
+        caloriesMap.put("Apple",81);
         caloriesMap.put("Apples",81);
+        caloriesMap.put("Orange",65);
         caloriesMap.put("Oranges",65);
+        caloriesMap.put("Grapes",114);
         caloriesMap.put("Grapes",114);
 
         final TextView textView = (TextView)findViewById(R.id.calorieView);

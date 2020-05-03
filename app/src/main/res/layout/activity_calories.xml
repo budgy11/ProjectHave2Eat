@@ -32,9 +32,10 @@
     <TextView
         android:id="@+id/calorieView"
         android:layout_width="360dp"
-        android:layout_height="48dp"
+        android:layout_height="96dp"
         android:layout_marginBottom="268dp"
         android:textSize="36dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"

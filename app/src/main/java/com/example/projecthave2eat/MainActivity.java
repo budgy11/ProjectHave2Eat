@@ -3,16 +3,20 @@
 
 package com.example.projecthave2eat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView tipCalculator,restaurants,calendar,
             reservations,comments,calories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

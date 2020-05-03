@@ -51,7 +51,7 @@ public class Calories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calories);
 
-        final HashMap<String, String> caloriesMap = new HashMap<String, Integer>();
+        final HashMap<String, String> caloriesMap = new HashMap<String, String>();
         caloriesMap.put("Apple","81");
         caloriesMap.put("Apples","81");
         caloriesMap.put("Orange","65");

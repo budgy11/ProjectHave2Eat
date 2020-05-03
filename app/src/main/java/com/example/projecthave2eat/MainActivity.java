@@ -12,10 +12,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView tipCalculator,restaurants,calendar,
             reservations,comments,calories;
+
 
 
     @Override
@@ -37,8 +39,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calendar.setOnClickListener(this);
         comments.setOnClickListener(this);
         calories.setOnClickListener(this);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int curId = item.getItemId();
+        if(curId == R.id.menu_settings){
+            Toast.makeText(this,"Settings Menu May be added later",Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

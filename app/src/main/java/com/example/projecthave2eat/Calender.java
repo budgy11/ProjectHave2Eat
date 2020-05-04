@@ -9,7 +9,7 @@ import com.example.calendarview.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Calendar extends AppCompatActivity {
+public class Calender extends AppCompatActivity {
 
     CalendarView calender;
     TextView date_view;
@@ -17,7 +17,7 @@ public class Calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calender);
 
         calender = (CalendarView)
                 findViewById(R.id.calender);

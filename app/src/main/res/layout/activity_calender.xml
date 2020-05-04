@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F30A0A"
-    tools:context="com.example.projecthave2eat.Calendar">
+    tools:context="com.example.projecthave2eat.Calender">
 
 
     <TextView
